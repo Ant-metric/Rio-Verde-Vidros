@@ -1,0 +1,19 @@
+GERADOR DAS PÁGINAS — Rio Verde Vidros
+
+O que faz
+  Monta index.html e as 10 subpáginas a partir de "RIO VERDE VIDROS.html"
+  (o modelo original, que NÃO deve ser editado nem apagado).
+
+Como usar
+  1. Edite os textos em _ferramentas/gerar-paginas.js
+     (cada página está num bloco add({ file: 'sobre.html', ... }) ).
+  2. Na pasta do projeto, rode:
+       node _ferramentas/gerar-paginas.js .
+  3. Abra o site e confira.
+
+Atenção
+  - Rodar o gerador SOBRESCREVE index.html e as subpáginas.
+    Edições feitas direto nesses HTML se perdem; faça as mudanças no gerador.
+  - Estilos próprios ficam em "RIO VERDE VIDROS_files/rv.css" e o
+    comportamento em "RIO VERDE VIDROS_files/rv.js" (não são gerados).
+  - Precisa do Node.js instalado.

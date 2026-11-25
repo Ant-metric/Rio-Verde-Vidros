@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "rio-verde",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["C:\\Users\\mensi\\AppData\\Local\\Temp\\claude\\47e71fb3ac86e356\\bb0d5cd0-1fb7-4a6d-aaa3-9e1cf9f2a1c4\\scratchpad\\serve.js", "C:\\Users\\mensi\\Desktop\\P0-RIO_VERDE_VIDROS", "5173"],
+      "port": 5173
+    }
+  ]
+}

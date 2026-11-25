@@ -1,0 +1,122 @@
+/* ===== Animações de texto ===== */
+.line-mask>.line{transform:translateY(200%)}
+.line-mask>.line.is-in{animation:rv-rise 1.05s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes rv-rise{from{transform:translateY(200%)}to{transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.line-mask>.line,.line-mask>.line.is-in{transform:none;animation:none}}
+
+/* No celular as quebras de linha fixas (feitas para desktop) quebram mal:
+   o título passa a fluir como texto corrido, sem a máscara por linha. */
+@media (width<=600px){
+  .base-heading .line-mask{display:inline!important;padding:0!important;margin:0!important;overflow:visible!important}
+  .base-heading .line-mask>.line{display:inline!important}
+}
+
+/* ===== Barra flutuante e menu ===== */
+.menu{opacity:0;transition:opacity .35s ease,transform .35s ease,visibility .35s ease}
+.app.is-menu .menu{visibility:visible!important;pointer-events:auto!important;position:fixed;z-index:20;bottom:10rem;left:50%;opacity:1;transform:translateX(-50%)}
+.header.menu-open .close{visibility:visible!important}
+.header.menu-open .burger{visibility:hidden!important}
+.header.is-scrolled .arrow{visibility:visible!important}
+.header.is-scrolled .logo{visibility:hidden!important}
+/* a seta "voltar ao topo" ocupa o lugar do logo, não o centro do rótulo */
+.header .arrow{left:0}
+.menu .sub .link.is-active{color:var(--color-white)}
+
+/* ===== Rodapé ===== */
+.footer .container{transform:none!important}
+.footer .logo{opacity:1!important;pointer-events:auto!important}
+.footer .wordmark{visibility:hidden!important}
+.footer .link.is-pending{cursor:default;opacity:.45}
+.footer .link.is-pending:after{display:none}
+.exo-ape{display:none!important}
+
+/* ===== Avaliações ===== */
+.google-reviews .track{animation:rv-marquee 80s linear infinite}
+.google-reviews:hover .track{animation-play-state:paused}
+@keyframes rv-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.google-reviews .card.is-expanded .quote{-webkit-line-clamp:unset;display:block;overflow:visible}
+
+/* ===== Showroom ===== */
+.banner-showroom .background{transform:none!important;opacity:1!important}
+.banner-showroom .column{transform:none!important}
+.rv-pending{opacity:.6;font-style:italic}
+
+/* ===== Coleção no celular ===== */
+@media (width<=600px){
+  .product-collection .block{transform:none!important}
+  .product-collection .block .title{font-size:1.8rem;letter-spacing:-.01em;text-align:center;padding:0 1rem}
+}
+
+/* ===== Topo das subpáginas (variação do topo da home) ===== */
+.home-header.rv-hero{position:relative}
+.home-header.rv-hero .row:first-child{height:86svh}
+@media (width>=601px){.home-header.rv-hero .row:nth-child(2){padding-bottom:8rem}}
+@media (width<=600px){.home-header.rv-hero .row:nth-child(2){padding-bottom:4rem}}
+.home-header.rv-hero .indicator{display:none}
+.home-header.rv-hero.is-plain{color:var(--color-grey)}
+.home-header.rv-hero.is-plain .row:first-child{height:auto;padding:22rem 0 10rem}
+@media (width<=600px){.home-header.rv-hero.is-plain .row:first-child{padding:16rem 0 6rem}}
+.home-header.rv-hero.is-plain .row:nth-child(2),
+.home-header.rv-hero.is-plain .row:nth-child(2):before{border-color:color-mix(in srgb,var(--color-grey) 20%,transparent)}
+
+/* ===== Seções genéricas ===== */
+.rv-section{margin:15rem 0}
+.rv-container{margin:0 4rem}
+@media (width<=600px){.rv-section{margin:8rem 0}.rv-container{margin:0 2rem}}
+.featured-projects.rv-intro{margin-bottom:4rem}
+
+/* ===== Linhas numeradas (valores, etapas, notas, categorias) ===== */
+.rv-rows{list-style:none;margin:0;padding:0}
+.rv-row{border-bottom:1px solid color-mix(in srgb,var(--color-grey) 10%,transparent);padding:3.2rem 0;scroll-margin-top:4rem}
+@media (width>=601px){.rv-row{display:grid;grid-template-columns:repeat(24,1fr);grid-column-gap:2rem;align-items:baseline}}
+.rv-row-num{display:block;font-family:var(--font-f-aeonik-mono);text-transform:uppercase;letter-spacing:.08em;font-size:1.2rem;font-weight:500;line-height:1.3;color:color-mix(in srgb,var(--color-grey) 40%,transparent)}
+.rv-row-title{font-family:var(--font-f-aeonik-pro);font-size:2.4rem;font-weight:400;line-height:1.2}
+.rv-row-text{font-family:var(--font-f-aeonik-pro);font-size:1.8rem;line-height:1.3;color:color-mix(in srgb,var(--color-grey) 70%,transparent)}
+@media (width>=601px){
+  .rv-row-num{grid-column:1/3}
+  .rv-row-title{grid-column:3/11}
+  .rv-row-body{grid-column:11/23}
+}
+@media (width<=600px){
+  .rv-row{padding:2.6rem 0}
+  .rv-row-title{margin:1rem 0 1.2rem}
+  .rv-row-text{font-size:1.6rem}
+}
+.rv-pills{display:flex;flex-wrap:wrap;gap:1rem}
+.rv-row-text+.rv-pills{margin-top:2rem}
+.rv-pill{border:1px solid color-mix(in srgb,var(--color-grey) 20%,transparent);border-radius:2rem;padding:.5rem 1rem;font-family:var(--font-f-aeonik-mono);text-transform:uppercase;letter-spacing:.08em;font-size:1.2rem;font-weight:500;line-height:1.5rem;color:color-mix(in srgb,var(--color-grey) 70%,transparent)}
+
+/* ===== Cartões de obras (página Projetos) ===== */
+.rv-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:6rem 2rem;list-style:none;margin:0;padding:0}
+@media (width<=900px){.rv-cards{grid-template-columns:repeat(2,1fr)}}
+@media (width<=600px){.rv-cards{grid-template-columns:1fr;gap:4rem}}
+.rv-card{scroll-margin-top:4rem}
+.rv-card-image{aspect-ratio:236/296;overflow:hidden;background:var(--color-taupe)}
+.rv-card-image img{width:100%;height:100%;object-fit:cover;display:block}
+.rv-card-title{font-family:var(--font-f-aeonik-pro);font-size:2.4rem;font-weight:400;line-height:1.2;margin:2rem 0 1.4rem}
+
+/* ===== Formulário de contato (estilo do painel de orçamento) ===== */
+.rv-contact .row:not(:first-child){margin-top:12rem}
+@media (width<=600px){.rv-contact .row:not(:first-child){margin-top:6rem}}
+.rv-contact .field .label{text-align:left}
+@media (width>=601px){
+  .rv-contact .row{flex-direction:column;align-items:center}
+  .rv-contact .row .text{width:auto;text-align:center;margin-bottom:4rem}
+  .rv-contact .column{margin:0 auto}
+}
+.rv-contact .input:focus,.rv-contact .textarea:focus{outline:none;border-color:var(--color-grey)}
+.rv-contact .button:focus-visible,.rv-contact .submit:focus-visible{outline:2px solid var(--color-grey);outline-offset:2px}
+.rv-contact .textarea{display:block}
+.rv-contact .group .title{display:block}
+.rv-info{list-style:none;margin:0;padding:0}
+.rv-info li{display:flex;justify-content:space-between;gap:2rem;padding:1.6rem 0;border-bottom:1px solid color-mix(in srgb,var(--color-grey) 10%,transparent);font-family:var(--font-f-aeonik-pro);font-size:1.8rem;line-height:1.3}
+.rv-info li:first-child{padding-top:0}
+.rv-info span:first-child{font-family:var(--font-f-aeonik-mono);text-transform:uppercase;letter-spacing:.08em;font-size:1.2rem;font-weight:500;color:color-mix(in srgb,var(--color-grey) 60%,transparent)}
+
+/* ===== Texto corrido (Política, Termos) ===== */
+.rv-prose{max-width:76rem;margin:0 auto}
+.rv-prose h2{font-family:var(--font-f-aeonik-pro);font-size:2.4rem;font-weight:400;line-height:1.2;margin:5rem 0 1.6rem}
+.rv-prose h2:first-child{margin-top:0}
+.rv-prose p{font-family:var(--font-f-aeonik-pro);font-size:1.8rem;line-height:1.45;color:color-mix(in srgb,var(--color-grey) 80%,transparent);margin:0 0 1.6rem}
+.rv-prose .rv-note{font-family:var(--font-f-aeonik-mono);text-transform:uppercase;letter-spacing:.08em;font-size:1.2rem;font-weight:500;color:color-mix(in srgb,var(--color-grey) 50%,transparent);margin-top:6rem}
+@media (width<=600px){.rv-prose p{font-size:1.6rem}}

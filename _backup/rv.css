@@ -1,0 +1,31 @@
+.line-mask>.line{transform:translateY(200%)}
+.line-mask>.line.is-in{animation:rv-rise 1.05s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes rv-rise{from{transform:translateY(200%)}to{transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.line-mask>.line,.line-mask>.line.is-in{transform:none;animation:none}}
+.menu{opacity:0;transition:opacity .35s ease,transform .35s ease,visibility .35s ease}
+.app.is-menu .menu{visibility:visible!important;pointer-events:auto!important;position:fixed;z-index:20;bottom:10rem;left:50%;opacity:1;transform:translateX(-50%)}
+.header.menu-open .close{visibility:visible!important}
+.header.menu-open .burger{visibility:hidden!important}
+.header.is-scrolled .arrow{visibility:visible!important}
+.header.is-scrolled .logo{visibility:hidden!important}
+.footer .logo{opacity:1!important;pointer-events:auto!important}
+.footer .wordmark{visibility:hidden!important}
+.exo-ape{display:none!important}
+.google-reviews .track{animation:rv-marquee 80s linear infinite}
+.google-reviews:hover .track{animation-play-state:paused}
+@keyframes rv-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.google-reviews .card.is-expanded .quote{-webkit-line-clamp:unset;display:block;overflow:visible}
+.banner-showroom .background{transform:none!important;opacity:1!important}
+.rv-page{padding:18rem 0 8rem}
+.rv-page .container{margin:0 4rem}
+@media (width<=600px){.rv-page .container{margin:0 2rem}}
+.rv-page h1{font-family:var(--font-f-aeonik-pro);letter-spacing:-.03em;font-weight:400;font-size:6.4rem;line-height:1;margin:0 0 2rem}
+@media (width<=600px){.rv-page h1{font-size:4rem}}
+.rv-lead{max-width:46rem;font-family:var(--font-f-aeonik-pro);font-size:1.8rem;line-height:1.4;color:color-mix(in srgb,var(--color-grey) 80%,transparent)}
+.rv-list{list-style:none;margin:4rem 0 0;padding:0;max-width:62rem}
+.rv-list li{border-top:1px solid color-mix(in srgb,var(--color-grey) 18%,transparent);padding:2rem 0}
+.rv-list strong{display:block;font-family:var(--font-f-aeonik-pro);font-size:2rem;font-weight:400;margin-bottom:.6rem}
+.rv-form{display:grid;gap:1.4rem;max-width:42rem;margin-top:3rem}
+.rv-form input,.rv-form textarea{font:inherit;font-size:1.6rem;color:inherit;background:transparent;border:0;border-bottom:1px solid color-mix(in srgb,var(--color-grey) 30%,transparent);padding:1rem 0;border-radius:0}
+.rv-form textarea{min-height:8rem;resize:vertical}
+.rv-note{margin-top:1.6rem;font-size:1.5rem}
